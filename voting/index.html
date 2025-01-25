@@ -14,26 +14,22 @@
   <div class="container">
     <!-- Voter ID Authentication Section -->
     <div id="voter-id-section">
-      <h2>Enter Your Voter ID</h2>
-      <input type="text" id="voter-id" placeholder="Enter your voter ID" required>
+      <input type="text" id="voter-id" placeholder="Enter Voter ID">
       <button id="authenticate-btn">Authenticate</button>
       <p id="auth-error" style="color: red;"></p>
     </div>
-
+  
     <!-- Candidate Selection Section (Initially Hidden) -->
     <div id="vote-section" style="display: none;">
-      <h2>Select Your Candidate</h2>
-      <select id="candidate-select" required>
-        <option value="" disabled selected>Select a candidate</option>
-        <!-- Candidates will be dynamically added here -->
-      </select>
+      <select id="candidate-select"></select>
       <button id="submit-vote-btn">Submit Vote</button>
     </div>
-
-    <!-- Voting Confirmation -->
-    <div id="confirmation-message" style="display: none;">
-      <h2>Thank you for voting!</h2>
-    </div>
+  
+    <!-- Confirmation Message Section (Initially Hidden) -->
+    <p id="confirmation-message" style="display: none;">Thank you for voting!</p>
+  
+    <!-- Button to go back to Voter ID Section -->
+    <button id="back-to-id-btn" style="display: none;" onclick="redirectToVoterId()">Back to Voter ID</button>
   </div>
 
   <footer>
@@ -41,5 +37,16 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Function to redirect back to the Voter ID section
+    function redirectToVoterId() {
+      // Hide the confirmation message and the back button
+      document.getElementById("confirmation-message").style.display = "none";
+      document.getElementById("back-to-id-btn").style.display = "none";
+      
+      // Show the Voter ID section again
+      document.getElementById("voter-id-section").style.display = "block";
+    }
+  </script>
 </body>
 </html>
